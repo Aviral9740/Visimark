@@ -1,57 +1,66 @@
 import React, { useState } from "react";
 import { toast } from "react-toastify";
 import { Link } from "react-router-dom";
+import { Video } from "lucide-react";
+import { useNavigate } from "react-router-dom";
 
 const Login = () => {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-    return (
+  
+  const navigate= useNavigate("");
+
+  const handleRoleSelect = (selectedRole) => {
+    setRole(selectedRole);
+  };
+
+  return (
     <>
-    <div className="w-full flex items-stretch justify-center overflow-hidden">
-        <div className="flex flex-col items-center justify-center bg-gradient-to-br from-[#AEC3B1] via-[#588292] to-[#F0F6DF]">
-            <div className="p-10 text-white">
-                <img src="src\assets\Logo.png" alt="Logo" className="w-24 h-24 mb-2" />
-                <h4 className="font-semibold">VisiMark</h4>
-        </div>
- </div>
-    <div>
-      <form className="flex flex-col items-center justify-between gap-4 w-80 p-6 bg-slate-white">
-        <h2 className="text-xl font-semibold text-center">Sign In</h2>
-        <h4 className="text-l font-light text-center">Sign in to your account via email</h4>
-        <input
-          type="email"
-          placeholder="Enter your Email Address"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-          className="px-3 py-2 border rounded-md"
-          required
-        />
-        <input
-          type="password"
-          placeholder="Enter your Password"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-          className="px-3 py-2 border rounded-md"
-          required
-        />
-        </form>
-        <div className="grid grid-rows-3 gap-2 items-center justify-center">
-        <button type="submit" className="px-3 py-2 bg-[#588292] text-white rounded-md hover:opacity-90">
-          Sign In
-        </button>
-        <p> OR</p>
-        <Link to="/signup">
-        <button className="px-3 py-2 bg-[#588292] text-white rounded-md hover:opacity-90">
-          Sign Up
-        </button>
-        </Link>
-        </div>
+    
+  <div className="absolute inset-0 w-full min-h-screen overflow-hidden">
+  <div className="absolute inset-0 bg-[url('src/assets/HDBG.png')] bg-cover bg-center bg-no-repeat opacity-50 -z-20"></div>
+  <div className="absolute inset-0 bg-gradient-to-tl from-[#022535] via-[#476C7B] to-[#134558] opacity-90 -z-10" style={{ backgroundSize: '400% 400%', animation: 'gradientMove 8s ease infinite', }} ></div>
+  <style>
+    {`
+      @keyframes gradientMove {
+        0% { background-position: 0% 0%; }
+        50% { background-position: 100% 100%; }
+        100% { background-position: 0% 0%; }
+      }
+    `}
+    </style>
+    <div className="relative z-10 flex items-center justify-center min-h-screen">
+    <div className="flex w-96 overflow-hidden">
+      <img src="src/assets/Logo1.png" alt="Logo1" className="w-full h-auto" />
     </div>
-   
-    </div>
+
+
+
+      <div className="flex flex-col items-center border-white/20 bg-white/10 backdrop-blur-[10px] rounded-xl backdrop-filter p-7">
+      
+        <h2 className="text-2xl font-semibold text-[#AEC3B1] mb-4 text-center">Select Login Type</h2>
+          <div className="flex items-center justify-center bg-[#AEC3B1] p-4 rounded-xl">
+          
+            <div className="flex flex-col items-center justify-center gap-6 p-7">
+              
+              <div className="flex flex-col gap-6">
+                <Link to="/alogin">
+                <button onClick={() => handleRoleSelect("user")} className="px-6 py-3 bg-[#134558] text-[#F0F6DF] rounded-md text-lg hover:opacity-90 transition">
+                  User Login
+                </button>
+                </Link>
+                <Link to="/alogin">
+                <button onClick={() => handleRoleSelect("admin")} className="px-6 py-3 bg-[#134558] text-[#F0F6DF] rounded-md text-lg hover:opacity-90 transition">
+                  Admin Login
+                </button>
+                </Link>
+              </div>
+            </div>
+            </div>
+        </div>
+
+      </div>
+      </div>
     </>
   );
 };
-
 
 export default Login;
