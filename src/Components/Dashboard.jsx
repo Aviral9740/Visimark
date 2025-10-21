@@ -4,7 +4,7 @@ const Dashboard = () => {
   return (
     <>
     
-    <div className="w-full min-h-screen bg-[#12232D]">
+    <main className="w-full min-h-screen bg-[#12232D]">
     <Header/>
     <section className="flex flex-row gap-16 mt-10 p-4">
       <div className='flex-1 grid grid-rows-2 gap-12 ps-8'>
@@ -53,7 +53,7 @@ const Dashboard = () => {
         <img src="src/assets/Dash.png" alt="Dash" className=''/>
       </div>
     </section>
-    </div>
+    </main>
     </>
   )
 }
