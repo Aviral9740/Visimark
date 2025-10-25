@@ -1,13 +1,12 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import { toast } from "react-toastify";
 import { Link } from "react-router-dom";
-import { Video } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 
 const Login = () => {
   
   const navigate= useNavigate("");
-
+  const [role, setRole] = useState("");
   const handleRoleSelect = (selectedRole) => {
     setRole(selectedRole);
   };
@@ -17,16 +16,7 @@ const Login = () => {
     
   <div className="absolute inset-0 w-full min-h-screen overflow-hidden">
   <div className="absolute inset-0 bg-[url('src/assets/HDBG.png')] bg-cover bg-center bg-no-repeat opacity-50 -z-20"></div>
-  <div className="absolute inset-0 bg-gradient-to-tl from-[#022535] via-[#476C7B] to-[#134558] opacity-90 -z-10" style={{ backgroundSize: '400% 400%', animation: 'gradientMove 8s ease infinite', }} ></div>
-  <style>
-    {`
-      @keyframes gradientMove {
-        0% { background-position: 0% 0%; }
-        50% { background-position: 100% 100%; }
-        100% { background-position: 0% 0%; }
-      }
-    `}
-    </style>
+  <div className="absolute inset-0 bg-gradient-to-tl from-[#022535] via-[#476C7B] to-[#134558] opacity-95 -z-10" style={{ backgroundSize: '400% 400%', animation: 'gradientMove 8s ease infinite', }} ></div>
     <div className="relative z-10 flex items-center justify-center min-h-screen">
     <div className="flex w-96 overflow-hidden">
       <img src="src/assets/Logo1.png" alt="Logo1" className="w-full h-auto" />
@@ -41,8 +31,8 @@ const Login = () => {
           
             <div className="flex flex-col items-center justify-center gap-6 p-7">
               
-              <div className="flex flex-col gap-6">
-                <Link to="/alogin">
+              <div className="flex flex-col items-center gap-6">
+                <Link to="/ulogin">
                 <button onClick={() => handleRoleSelect("user")} className="px-6 py-3 bg-[#134558] text-[#F0F6DF] rounded-md text-lg hover:opacity-90 transition">
                   User Login
                 </button>
